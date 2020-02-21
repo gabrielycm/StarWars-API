@@ -1,4 +1,4 @@
-import * as Api from '../../service/star.service'
+import * as Api from '../../service/Peoples.service'
 
 export const TYPES = {
     REQUEST_PEOPLE: "REQUEST_PEOPLE",

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const Container = styled.div`
 min-width:10vw;
@@ -12,7 +12,11 @@ align-items:center;
     #Page{
         color:#696969;
     }
+${props => props.erro && css`
+height:100vh;
+`}
 `
+
 const Content = styled.div`
 width:100%;
 height:100%;
@@ -30,26 +34,27 @@ align-items:center;
 background-color:#f1f1f1;
 `
 
-const ButtonContainer = styled.div`
-height:80px;
-min-width:98.9vw;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:#c1c1c1;
-margin-top:20px;
+const MyIcon = styled.img`
+position:absolute;
+left:5px;
+top:5px;
+width:4%;
+${props => props.mobile && css`
+position:absolute;
+left:5px;
+top:5px;
+width:13%; 
+
+`}
 `
 
-const Button = styled.button`
-margin-left:10px;
-margin-right:10px;
-height:50px;
-width:100px;
-background:white;
-border:2px solid #C2C2C2;
-outline:none;
-cursor:${props => props.disabled ? 'not-allowed' : 'pointer'};
+const MyLogo = styled.img`
+width: 35%;
+height: 26%;
+${props => props.mobile && css`
+width: 60%;
+height: 20%;
+`}
 `
 
-
-export { Container, Content, LoadingContainer, ButtonContainer, Button }
+export { Container, Content, MyIcon, MyLogo, LoadingContainer }

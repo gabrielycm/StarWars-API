@@ -3,6 +3,6 @@ import './loading.css';
 
 export default function loading() {
   return (
-    <div className="lds-heart"><div></div></div>
+    <div className="lds-hourglass"></div>
   );
 }
