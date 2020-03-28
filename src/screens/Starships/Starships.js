@@ -4,7 +4,7 @@ import { Container, Content, LoadingContainer } from './styles';
 import { ButtonContainer, Button, MyIcon } from '../../assets/Constants/const.style'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { getStarship } from '../../store/Starships/starships.action'
+import { getService } from '../../store/swapi/swapi.action'
 
 import Loading from '../../Components/loading/loading';
 import Card from '../../Components/Card/Card';
@@ -13,17 +13,15 @@ import dartIcon from '../../assets/images/dartIcon.png'
 
 export default function Starships() {
 
-    const starshipStore = useSelector(state => state.starships)
-    const { loading } = starshipStore
+    const swapiStore = useSelector(state => state.swapi)
+    const { loading } = swapiStore
     const totalPages = 4;
     const dispatch = useDispatch()
-    const data = starshipStore.data.results
+    const data = swapiStore.data.results
     const [page, setPage] = useState(1)    
     const [showMenu, setShowMenu] = useState(false)
     const {isSmall, isMedium} = useMedia()
     
-    console.log(data)
-
     const toggleMenu = ()=>{
         setShowMenu(!showMenu)
     }
@@ -32,7 +30,7 @@ export default function Starships() {
       },[page])
       
       const getStarships = (body) =>{
-        dispatch(getStarship(body))
+        dispatch(getService("starships",body))
       }
 
       const onBack = ()=>{
@@ -53,21 +51,25 @@ export default function Starships() {
       <h1 id='Page'>page: {page}</h1>
       <Content>
         {data.map((starships, index)=> 
-        <Card 
+        <Card
+        starships
+        children={<>
+          <h2>{starships.name}</h2>
+          <p>model: {starships.model}</p>
+          <p>manufacturer: {starships.manufacturer}</p>
+          <p>cost in credits: {starships.cost_in_credits}</p>
+          <p>length : {starships.length}</p>
+          <p>max_atmosphering_speed : {starships.max_atmosphering_speed}</p>
+          <p>crew: {starships.crew}</p>
+          <p>passengers: {starships.passengers}</p>
+          <p>cargo capacity: {starships.cargo_capacity}</p>
+          <p>consumables: {starships.consumables}</p>
+          <p>hyperdrive rating: {starships.hyperdrive_rating}</p>
+          <p>MGLT: {starships.MGLT}</p>
+          <p>starship class: {starships.starship_class}</p>
+          </>
+          }
           key={index}
-          name={"Starship: " + starships.name}
-          first={"model: " + starships.model}
-          second={"manufacturer: " + starships.manufacturer}
-          third={"cost in credits: " + starships.cost_in_credits}
-          fourth={"length: " + starships.length}
-          fifth={"max atmosphering speed: " + starships.max_atmosphering_speed}
-          sixth={"crew: " + starships.crew}
-          seventh={"passengers: " + starships.passengers}
-          eighth={"cargo capacity: "+ starships.cargo_capacity}
-          ninth={"consumables: "+ starships.consumables}
-          tenth={"hyperdrive rating: "+ starships.hyperdrive_rating}
-          eleventh={"Megalight per hour: "+ starships.MGLT}
-          twelfth={"starship class: "+ starships.starship_class}
           />
         )}
       </Content>

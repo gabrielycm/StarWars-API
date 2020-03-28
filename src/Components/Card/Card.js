@@ -1,11 +1,19 @@
 import React from 'react';
 
-import { Container, Row } from './styles';
+import { Container, Content } from './styles';
 
 export default function Card(props) {
   return (
-    <Container>
-      {props.children}
+    <Container 
+    planet={props.planet}
+    films={props.films}
+    species={props.species}
+    starships={props.starships}
+    vehicles={props.vehicles}
+    >
+      <Content>
+        {props.children}
+      </Content>
     </Container>
   );
 }

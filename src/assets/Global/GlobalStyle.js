@@ -1,9 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
-
+import './font.css'
 const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
   body * {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Kurale', serif;
   }
+
 `
 export default GlobalStyle

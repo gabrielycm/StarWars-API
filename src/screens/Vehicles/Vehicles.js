@@ -4,7 +4,7 @@ import { Container, Content, LoadingContainer } from './styles';
 import { ButtonContainer, Button, MyIcon } from '../../assets/Constants/const.style'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { getVehicle } from '../../store/Vehicles/vehicles.action'
+import { getService } from '../../store/swapi/swapi.action'
 
 import Loading from '../../Components/loading/loading';
 import Card from '../../Components/Card/Card';
@@ -13,17 +13,15 @@ import dartIcon from '../../assets/images/dartIcon.png'
 
 export default function Vehicles() {
 
-    const vehiclesStore = useSelector(state => state.vehicles)
-    const { loading } = vehiclesStore
+    const swapiStore = useSelector(state => state.swapi)
+    const { loading } = swapiStore
     const totalPages = 4;
     const dispatch = useDispatch()
-    const data = vehiclesStore.data.results
+    const data = swapiStore.data.results
     const [page, setPage] = useState(1)    
     const [showMenu, setShowMenu] = useState(false)
     const {isSmall, isMedium} = useMedia()
     
-    console.log(data)
-
     const toggleMenu = ()=>{
         setShowMenu(!showMenu)
     }
@@ -32,7 +30,7 @@ export default function Vehicles() {
       },[page])
       
       const getVehicles = (body) =>{
-        dispatch(getVehicle(body))
+        dispatch(getService("vehicles",body))
       }
 
       const onBack = ()=>{
@@ -53,19 +51,23 @@ export default function Vehicles() {
       <h1 id='Page'>page: {page}</h1>
       <Content>
         {data.map((vehicles, index)=> 
-        <Card 
+        <Card
+          vehicles
+          children={<>
+            <h2>{vehicles.name}</h2>
+            <p>model: {vehicles.model}</p>
+            <p>manufacturer: {vehicles.manufacturer}</p>
+            <p>cost in credits: {vehicles.cost_in_credits}</p>
+            <p>length: {vehicles.length}</p>
+            <p>max atmosphering speed: {vehicles.max_atmosphering_speed}</p>
+            <p>crew: {vehicles.crew}</p>
+            <p>passengers: {vehicles.passengers}</p>
+            <p>cargo capacity: {vehicles.cargo_capacity}</p>
+            <p>consumables: {vehicles.consumables}</p>
+            <p>vehicle class: {vehicles.vehicle_class}</p>
+            </>
+            }
           key={index}
-          name={"Vehicle: " + vehicles.name}
-          first={"Model: " + vehicles.model}
-          second={"Manufacturer: " + vehicles.manufacturer}
-          third={"cost in credits: " + vehicles.cost_in_credits}
-          fourth={"length : " + vehicles.length}
-          fifth={"max atmosphering speed: " + vehicles.max_atmosphering_speed}
-          sixth={"crew: " + vehicles.crew}
-          seventh={"passengers: " + vehicles.passengers}
-          eighth={"cargo capacity: "+ vehicles.cargo_capacity}
-          ninth={"consumables: "+ vehicles.consumables}
-          tenth={"vehicle class: "+ vehicles.vehicle_class}
           />
         )}
       </Content>

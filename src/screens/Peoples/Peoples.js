@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Container, Content, LoadingContainer } from './styles';
 import { ButtonContainer, Button } from '../../assets/Constants/const.style';
 
+
 import { useSelector, useDispatch } from 'react-redux';
-import { getPeoples } from '../../store/peoples/peoples.action';
+import { getService } from '../../store/swapi/swapi.action';
+
 import Loading from '../../Components/loading/loading';
 import Card from '../../Components/Card/Card';
 import MyMenu from '../../Components/Menu/Menu';
@@ -13,11 +15,11 @@ import { useMedia } from '../../hooks/useMedia';
 
 export default function Peoples() {
 
-    const peopleStore = useSelector(state => state.peoples  )
-    const { loading } = peopleStore
+    const swapiStore = useSelector(state => state.swapi  )
+    const { loading } = swapiStore
     const totalPages = 9
     const dispatch = useDispatch()
-    const data = peopleStore.data.results
+    const data = swapiStore.data.results
     const [page, setPage] = useState(1)    
     const [showMenu, setShowMenu] = useState(false)
     const {isSmall, isMedium} = useMedia()
@@ -30,7 +32,7 @@ export default function Peoples() {
       },[page])
       
       const getPeople = (body) =>{
-        dispatch(getPeoples(body))
+        dispatch(getService("people", body))
       }
 
       const onBack = ()=>{

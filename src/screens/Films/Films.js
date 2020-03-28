@@ -3,32 +3,30 @@ import { useMedia } from '../../hooks/useMedia';
 import { Container, Content, LoadingContainer } from './styles';
 import { ButtonContainer, Button, MyIcon } from '../../assets/Constants/const.style'
 
-import { useSelector, useDispatch } from 'react-redux'
-import { getFilm } from '../../store/Films/films.action'
+import { useSelector, useDispatch } from 'react-redux';
+import { getService } from '../../store/swapi/swapi.action';
 
 import Loading from '../../Components/loading/loading';
 import Card from '../../Components/Card/Card';
-import MyMenu from '../../Components/Menu/Menu'
-import dartIcon from '../../assets/images/dartIcon.png'
+import MyMenu from '../../Components/Menu/Menu';
+import dartIcon from '../../assets/images/dartIcon.png';
 
 export default function Films() {
 
-    const filmsStore = useSelector(state => state.films)
-    const { loading } = filmsStore
+    const swapiStore = useSelector(state => state.swapi)
+    const { loading } = swapiStore
     const totalPages = 1;
     const dispatch = useDispatch()
-    const data = filmsStore.data.results
+    const data = swapiStore.data.results
     const [page, setPage] = useState(1)    
     const [showMenu, setShowMenu] = useState(false)
     const {isSmall, isMedium} = useMedia()
     
-    console.log(data)
-
     const toggleMenu = ()=>{
         setShowMenu(!showMenu)
     }
     const getFilms = (body) =>{
-      dispatch(getFilm(body))
+      dispatch(getService("films", body))
     }
     useEffect(()=>{        
       getFilms(page)
@@ -53,13 +51,17 @@ export default function Films() {
       <h1 id='Page'>page: {page}</h1>
       <Content>
         {data.map((films, index)=> 
-        <Card 
+        <Card
+          films
+          children={<>
+            <h2>{films.title}</h2>
+            <p>opening crawl: {films.opening_crawl}</p>
+            <p>director: {films.director}</p>
+            <p>producer: {films.producer}</p>
+            <p>release date: {films.release_date}</p>
+            </>
+            }
           key={index}
-          name={"Title: " + films.title}
-          first={films.opening_crawl}
-          second={"director: " + films.director}
-          third={"producer: " + films.producer}
-          fourth={"release date : " + films.release_date}
           />
         )}
       </Content>

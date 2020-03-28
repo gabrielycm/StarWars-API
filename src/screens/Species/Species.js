@@ -4,7 +4,7 @@ import { Container, Content, LoadingContainer } from './styles';
 import { ButtonContainer, Button, MyIcon } from '../../assets/Constants/const.style'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { getSpecie } from '../../store/Species/species.action'
+import { getService } from '../../store/swapi/swapi.action'
 
 import Loading from '../../Components/loading/loading';
 import Card from '../../Components/Card/Card';
@@ -13,17 +13,15 @@ import dartIcon from '../../assets/images/dartIcon.png'
 
 export default function Species() {
 
-    const speciesStore = useSelector(state => state.species)
-    const { loading } = speciesStore
+    const swapiStore = useSelector(state => state.swapi)
+    const { loading } = swapiStore
     const totalPages = 4;
     const dispatch = useDispatch()
-    const data = speciesStore.data.results
+    const data = swapiStore.data.results
     const [page, setPage] = useState(1)    
     const [showMenu, setShowMenu] = useState(false)
     const {isSmall, isMedium} = useMedia()
     
-    console.log(data)
-
     const toggleMenu = ()=>{
         setShowMenu(!showMenu)
     }
@@ -32,7 +30,7 @@ export default function Species() {
       },[page])
       
       const getSpecies = (body) =>{
-        dispatch(getSpecie(body))
+        dispatch(getService("species",body))
       }
 
       const onBack = ()=>{
@@ -53,15 +51,19 @@ export default function Species() {
       <h1 id='Page'>page: {page}</h1>
       <Content>
         {data.map((specie, index)=> 
-        <Card 
+        <Card
+          species
+          children={<>
+            <h2>{specie.name}</h2>
+            <p>classification: {specie.classification}</p>
+            <p>designation: {specie.designation}</p>
+            <p>skin colors: {specie.skin_colors}</p>
+            <p>hair colors: {specie.hair_colors}</p>
+            <p>eye colors: {specie.eye_colors}</p>
+            <p>language: {specie.language}</p>
+            </>
+            }
           key={index}
-          name={"Name: " + specie.name}
-          first={"classification: " + specie.classification}
-          second={"designation: " + specie.designation}
-          third={"skin_colors: " + specie.skin_colors}
-          fourth={"hair_colors : " + specie.hair_colors}
-          fifth={"eye_colors: " + specie.eye_colors}
-          sixth={"language: " + specie.language}
           />
         )}
       </Content>
