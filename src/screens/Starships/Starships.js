@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getStarship } from '../../store/Starships/starships.action'
 
 import Loading from '../../Components/loading/loading';
-import Card from '../../Components/CardStarships/Card';
+import Card from '../../Components/Card/Card';
 import MyMenu from '../../Components/Menu/Menu'
 import dartIcon from '../../assets/images/dartIcon.png'
 

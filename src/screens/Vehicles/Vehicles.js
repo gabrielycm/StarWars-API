@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getVehicle } from '../../store/Vehicles/vehicles.action'
 
 import Loading from '../../Components/loading/loading';
-import Card from '../../Components/CardVehicles/Card';
+import Card from '../../Components/Card/Card';
 import MyMenu from '../../Components/Menu/Menu'
 import dartIcon from '../../assets/images/dartIcon.png'
 

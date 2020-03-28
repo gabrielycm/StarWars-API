@@ -51,14 +51,17 @@ export default function Peoples() {
         <h1 id='Page'>Page: {page}</h1>
       <Content>
         {data.map((people, index)=> 
-        <Card 
+        <Card
+          children={<>
+          <h2>{people.name}</h2>
+          <p>gender: {people.gender}</p>
+          <p>height: {people.height}</p>
+          <p>hair color: {people.hair_color}</p>
+          <p>skin color: {people.skin_color}</p>
+          <p>eye color: {people.eye_color}</p>
+          </>
+          }
           key={index}
-          name={people.name}
-          gender={people.gender}
-          height={people.height}
-          hair_color={people.hair_color}
-          skin_color={people.skin_color}
-          eye_color={people.eye_color}
           />
         )}
       </Content>

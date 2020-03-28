@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getPlanets } from '../../store/planets/planets.action'
 
 import Loading from '../../Components/loading/loading';
-import Card from '../../Components/CardPlanet/Card';
+import Card from '../../Components/Card/Card';
 import MyMenu from '../../Components/Menu/Menu'
 import dartIcon from '../../assets/images/dartIcon.png'
 
@@ -55,17 +55,21 @@ export default function Planets() {
       <h1 id='Page'>page: {page}</h1>
       <Content>
         {data.map((planet, index)=> 
-        <Card 
+        <Card children={<>
+          <h2>{planet.name}</h2>
+            <div className='content'>
+              <p>gender: {planet.rotation_period}</p>
+              <p>height: {planet.orbital_period}</p>
+              <p>hair color: {planet.terrain}</p>
+              <p>skin color: {planet.climate}</p>
+              <p>eye color: {planet.population}</p>
+              <p>eye color: {planet.gravity}</p>
+              <p>eye color: {planet.diameter}</p>
+              <p>eye color: {planet.population}</p>
+            </div>
+          </>
+          }
           key={index}
-          name={"Planet: " + planet.name}
-          first={"rotation period: " + planet.rotation_period}
-          second={"orbital period: " + planet.orbital_period}
-          third={"Terrain: " + planet.terrain}
-          fourth={"climate : " + planet.climate}
-          fifth={"population: " + planet.population}
-          sixth={"gravity: " + planet.gravity}
-          seventh={"diameter: " + planet.diameter}
-          eighth={"surface water: "+ planet.surface_water}
           />
         )}
       </Content>
