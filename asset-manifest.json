@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/react-hooks-e-redux/static/css/main.b0db275e.chunk.css",
-    "main.js": "/react-hooks-e-redux/static/js/main.5b7bd423.chunk.js",
-    "main.js.map": "/react-hooks-e-redux/static/js/main.5b7bd423.chunk.js.map",
+    "main.css": "/react-hooks-e-redux/static/css/main.ead4cb95.chunk.css",
+    "main.js": "/react-hooks-e-redux/static/js/main.5ec9ed71.chunk.js",
+    "main.js.map": "/react-hooks-e-redux/static/js/main.5ec9ed71.chunk.js.map",
     "runtime-main.js": "/react-hooks-e-redux/static/js/runtime-main.8df42135.js",
     "runtime-main.js.map": "/react-hooks-e-redux/static/js/runtime-main.8df42135.js.map",
-    "static/js/2.e06f95b2.chunk.js": "/react-hooks-e-redux/static/js/2.e06f95b2.chunk.js",
-    "static/js/2.e06f95b2.chunk.js.map": "/react-hooks-e-redux/static/js/2.e06f95b2.chunk.js.map",
+    "static/js/2.a3a2d8d5.chunk.js": "/react-hooks-e-redux/static/js/2.a3a2d8d5.chunk.js",
+    "static/js/2.a3a2d8d5.chunk.js.map": "/react-hooks-e-redux/static/js/2.a3a2d8d5.chunk.js.map",
     "index.html": "/react-hooks-e-redux/index.html",
-    "precache-manifest.65160939d278aab26f6d378a19605f68.js": "/react-hooks-e-redux/precache-manifest.65160939d278aab26f6d378a19605f68.js",
+    "precache-manifest.2e8472733ed5aca6326c2a385a35a00b.js": "/react-hooks-e-redux/precache-manifest.2e8472733ed5aca6326c2a385a35a00b.js",
     "service-worker.js": "/react-hooks-e-redux/service-worker.js",
-    "static/css/main.b0db275e.chunk.css.map": "/react-hooks-e-redux/static/css/main.b0db275e.chunk.css.map",
-    "static/js/2.e06f95b2.chunk.js.LICENSE.txt": "/react-hooks-e-redux/static/js/2.e06f95b2.chunk.js.LICENSE.txt",
+    "static/css/main.ead4cb95.chunk.css.map": "/react-hooks-e-redux/static/css/main.ead4cb95.chunk.css.map",
+    "static/js/2.a3a2d8d5.chunk.js.LICENSE.txt": "/react-hooks-e-redux/static/js/2.a3a2d8d5.chunk.js.LICENSE.txt",
     "static/media/Starlogo.png": "/react-hooks-e-redux/static/media/Starlogo.5d100186.png",
     "static/media/dartIcon.png": "/react-hooks-e-redux/static/media/dartIcon.ae317026.png",
     "static/media/stargif.gif": "/react-hooks-e-redux/static/media/stargif.1ed69097.gif"
   },
   "entrypoints": [
     "static/js/runtime-main.8df42135.js",
-    "static/js/2.e06f95b2.chunk.js",
-    "static/css/main.b0db275e.chunk.css",
-    "static/js/main.5b7bd423.chunk.js"
+    "static/js/2.a3a2d8d5.chunk.js",
+    "static/css/main.ead4cb95.chunk.css",
+    "static/js/main.5ec9ed71.chunk.js"
   ]
 }

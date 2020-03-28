@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ab487e253f263ab9ee21a9a4c9849652",
+    "revision": "30557dbd3ededc03c25db7d1d7752bf0",
     "url": "/react-hooks-e-redux/index.html"
   },
   {
-    "revision": "0140b7638ee189e3c96a",
-    "url": "/react-hooks-e-redux/static/css/main.b0db275e.chunk.css"
+    "revision": "68576abcb933d59013a4",
+    "url": "/react-hooks-e-redux/static/css/main.ead4cb95.chunk.css"
   },
   {
-    "revision": "7f52e4d2dc0bbb0d8e91",
-    "url": "/react-hooks-e-redux/static/js/2.e06f95b2.chunk.js"
+    "revision": "6c9f0d6cfafb74f55c9c",
+    "url": "/react-hooks-e-redux/static/js/2.a3a2d8d5.chunk.js"
   },
   {
     "revision": "928d7b5eb39d16fe9a880722c974b51e",
-    "url": "/react-hooks-e-redux/static/js/2.e06f95b2.chunk.js.LICENSE.txt"
+    "url": "/react-hooks-e-redux/static/js/2.a3a2d8d5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0140b7638ee189e3c96a",
-    "url": "/react-hooks-e-redux/static/js/main.5b7bd423.chunk.js"
+    "revision": "68576abcb933d59013a4",
+    "url": "/react-hooks-e-redux/static/js/main.5ec9ed71.chunk.js"
   },
   {
     "revision": "c55f4489f3b4e9052719",
